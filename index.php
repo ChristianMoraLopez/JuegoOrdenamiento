@@ -228,7 +228,7 @@ form {
 
 <p> Con cuántas palabras te gustaría jugar </p>
 
-<form action="main.php" method="post">
+<form action="index.php" method="post">
     <input type="number"   name="number_of_words" value="<?php echo $number_of_words; ?>">
     <button type="submit">Jugar</button>
 </form>
