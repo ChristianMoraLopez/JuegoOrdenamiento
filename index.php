@@ -78,7 +78,7 @@ foreach ($words as $word) {
 </head>
 <style>
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     margin: 0;
     padding: 0;
@@ -110,7 +110,7 @@ h1 {
     color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px #333;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     animation: colorChange 5s infinite alternate;
 }
 
