@@ -15,20 +15,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Comparar palabras ingresadas con las originales
+    foreach ($palabras_originales as $index => $palabra_original) {
+        // Capitalizar la primera letra de la palabra original
+        $palabras_originales[$index] = ucfirst($palabra_original);
+    }
+    
+    // Comparar palabras ingresadas con las originales
     foreach ($palabras_ingresadas as $index => $palabra_ingresada) {
-        // Aplicar ucfirst() fuera de las comillas
-        $palabra_ingresada_con_primera_mayuscula = ucfirst($palabra_ingresada);
-        
-        if (in_array($palabra_ingresada_con_primera_mayuscula, $palabras_originales)) {
-            $resultados[] = "La palabra '$palabra_ingresada_con_primera_mayuscula' es correcta.";
+        if (in_array($palabra_ingresada, $palabras_originales)) {
+            $resultados[] = "La palabra '$palabra_ingresada' es correcta.";
         } else {
-            $resultados[] = "La palabra '$palabra_ingresada_con_primera_mayuscula' es incorrecta.";
+            $resultados[] = "La palabra '$palabra_ingresada' es incorrecta.";
         }
     }
 }
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
