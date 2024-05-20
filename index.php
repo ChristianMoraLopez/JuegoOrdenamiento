@@ -78,29 +78,56 @@ foreach ($words as $word) {
 </head>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     margin: 0;
     padding: 0;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
 }
 
 .container {
     max-width: 800px;
     margin: 50px auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    transform: rotate(2deg);
+    transition: transform 0.5s;
+}
+
+.container:hover {
+    transform: rotate(-2deg);
 }
 
 h1 {
     text-align: center;
     color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #ff0000;
+    animation: colorChange 5s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% { color: #333; }
+    100% { color: #007bff; }
 }
 
 p {
     text-align: center;
     color: #666;
+    font-style: italic;
+    margin: 10px 0;
 }
 
 form {
@@ -112,27 +139,39 @@ form {
 }
 
 input[type="number"], input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     width: 80%;
     max-width: 300px;
-    font-size: 16px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 15px 30px;
+    background-color: #ff5733;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #c70039;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 .words-list {
@@ -144,18 +183,43 @@ button:hover {
 }
 
 .words-list p {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
     color: white;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
     margin: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
 }
 
-.words-list p.disorderedWords {
-    background-color: #333;
-    font-size: large;
-    font-weight: bolder;
+.words-list p:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.disorderedWords {
+    font-size: 22px;
+    font-weight: bold;
+    color: #007bff;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.hidden-inputs input {
+    display: none;
+}
+
+@keyframes formAnimation {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+form {
+    animation: formAnimation 1s ease-out;
 }
 
 </style>
