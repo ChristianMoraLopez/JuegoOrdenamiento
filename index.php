@@ -152,6 +152,12 @@ button:hover {
     margin: 0;
 }
 
+.words-list p.disorderedWords {
+    background-color: #333;
+    font-size: large;
+    font-weight: bolder;
+}
+
 </style>
 
 <body>
@@ -169,7 +175,7 @@ button:hover {
 
 <?php
 foreach ($words_disordered as $word_disordered) {
-    echo "<p>$word_disordered</p>";
+    echo "<p class= 'disorderedWords'>$word_disordered</p>";
 }
 ?>
 
