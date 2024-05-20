@@ -23,8 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Comparar palabras ingresadas con las originales
     foreach ($palabras_ingresadas as $index => $palabra_ingresada) {
         if (in_array($palabra_ingresada, $palabras_originales)) {
+            ucfirst($palabra_ingresada);
             $resultados[] = "La palabra '$palabra_ingresada' es correcta.";
         } else {
+            ucfirst($palabra_ingresada);
             $resultados[] = "La palabra '$palabra_ingresada' es incorrecta.";
         }
     }
