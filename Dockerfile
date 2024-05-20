@@ -8,7 +8,7 @@ FROM php:7.4-apache
 COPY . /var/www/html
 
 # Cambia los permisos de todos los archivos para que sean escribibles
-
+RUN chmod -R 777 /var/www/html
 
 # Expone el puerto 80 para el servidor web Apache
 EXPOSE 80
