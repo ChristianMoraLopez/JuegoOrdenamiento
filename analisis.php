@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Comparar palabras ingresadas con las originales
-    // foreach ($palabras_originales as $index => $palabra_original) {
-    //     // Capitalizar la primera letra de la palabra original
-    //     $palabras_originales[$index] = ucfirst($palabra_original);
-    // }
+    foreach ($palabras_originales as $index => $palabra_original) {
+        // Capitalizar la primera letra de la palabra original
+        $palabras_originales[$index] = $palabra_original;
+    }
     
     // Comparar palabras ingresadas con las originales
     foreach ($palabras_ingresadas as $index => $palabra_ingresada) {
