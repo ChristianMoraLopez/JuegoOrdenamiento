@@ -6,23 +6,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Recuperar las palabras originales enviadas a través del formulario
     for ($i = 0; isset($_POST["palabra_original_$i"]); $i++) {
-        $palabras_originales[] = $_POST["palabra_original_$i"];
+        $palabras_originales[] = $_POST[strtolower("palabra_original_$i")];
     }
 
     // Recuperar las palabras ingresadas por el usuario
     for ($i = 0; isset($_POST["palabra$i"]); $i++) {
-        $palabras_ingresadas[] = $_POST["palabra$i"];
+        $palabras_ingresadas[] = $_POST[strtolower("palabra$i")];
     }
 
     // Comparar palabras ingresadas con las originales
     foreach ($palabras_ingresadas as $index => $palabra_ingresada) {
-        if (in_array($palabra_ingresada, $palabras_originales)) {
-            $resultados[] = "La palabra '$palabra_ingresada' es correcta.";
+        // Aplicar ucfirst() fuera de las comillas
+        $palabra_ingresada_con_primera_mayuscula = ucfirst($palabra_ingresada);
+        
+        if (in_array($palabra_ingresada_con_primera_mayuscula, $palabras_originales)) {
+            $resultados[] = "La palabra '$palabra_ingresada_con_primera_mayuscula' es correcta.";
         } else {
-            $resultados[] = "La palabra '$palabra_ingresada' es incorrecta.";
+            $resultados[] = "La palabra '$palabra_ingresada_con_primera_mayuscula' es incorrecta.";
         }
     }
 }
+?>
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
