@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Comparar palabras ingresadas con las originales
     foreach ($palabras_ingresadas as $index => $palabra_ingresada) {
         if (in_array($palabra_ingresada, $palabras_originales)) {
-         
+            ucfirst($palabra_ingresada);
             $resultados[] = "La palabra '$palabra_ingresada' es correcta.";
         } else {
-            
+            ucfirst($palabra_ingresada);
             $resultados[] = "La palabra '$palabra_ingresada' es incorrecta.";
         }
     }
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <h2>Palabras ingresadas por el usuario y resultados:</h2>
         <?php foreach ($resultados as $resultado): ?>
-            <p><?php echo htmlspecialchars(ucfirst($resultado)); ?></p>
+            <p><?php echo htmlspecialchars($resultado); ?></p>
         <?php endforeach; ?>
     <?php else: ?>
         <p>No se recibieron palabras para analizar.</p>
