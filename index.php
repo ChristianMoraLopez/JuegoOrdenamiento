@@ -86,12 +86,8 @@ body {
 }
 
 @keyframes backgroundAnimation {
-    0% {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-    100% {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    }
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
 .container {
@@ -114,7 +110,7 @@ h1 {
     color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px #333;
     animation: colorChange 5s infinite alternate;
 }
 
